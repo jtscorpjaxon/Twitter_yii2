@@ -10,3 +10,5 @@
 <br>
 ````
 yii migrate
+````
+**Second run ````localhost```` or ````localhost:8888````** 
