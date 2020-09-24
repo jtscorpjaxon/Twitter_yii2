@@ -68,6 +68,10 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successCallback'],
+            ],
         ];
     }
 
@@ -244,7 +248,39 @@ return true;
         return User::findOne(Yii::$app->user->identity->getId());
     }
 
+    public function successCallback($client)
+    {
 
+        $attributes = $client->getUserAttributes();
+
+        if(isset($attributes['email'])) {
+            $user = User::find()->where(['email' => $attributes['email']])->one();
+            if (!empty($user)) {
+                Yii::$app->user->login($user);
+            } else {
+
+                $session = Yii::$app->session;
+                $session['attributes'] = $attributes;
+
+                if (!empty($session['attributes'])) {
+                    $user = new User();
+                    $user->username = str_replace(' ', '_', $session['attributes']['name']);
+                    $user->email = $session['attributes']['email'];
+                    $user->status = 10;
+                    $user->setPassword($session['attributes']['id']);
+                    $user->generateAuthKey();
+                    if ($user->save()) {
+                        $user = User::find()->where(['email' => $session['attributes']['email']])->one();
+                        if (!empty($user)) {
+                            Yii::$app->user->login($user);
+                        }
+                    }
+                }
+            }
+        }else{
+            Yii::$app->session->setFlash('error', 'Invalid Email.');
+        }
+    }
     public function actionLikes(){
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         if(isset($_POST['is_like'])){

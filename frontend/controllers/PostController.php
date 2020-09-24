@@ -72,7 +72,7 @@ class PostController extends Controller
         if ($model->load(Yii::$app->request->post())  && $model->save()) {
 $model->user_id=Yii::$app->user->getId();
             $this->UpImgs($model);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -93,7 +93,7 @@ $model->user_id=Yii::$app->user->getId();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $this->UpImgs($model);
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('update', [

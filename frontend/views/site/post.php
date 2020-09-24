@@ -127,33 +127,6 @@ if( !isset($list))
             }
         });
     }
-    function subscribe(issub) {
-
-        $.ajax({
-            url: '/site/subscribe',
-            type:'POST',
-            data:{is: issub,id: <?=$user->id?>},
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            success: function (res) {
-if(res)
-{
-    $('#subscribe').attr('disabled','true');
-    $('#unsubscribe').removeAttr('disabled','true');
-}
-else
-{
-    $('#unsubscribe').attr('disabled','true');
-    $('#subscribe').removeAttr('disabled','true')
-}
-
-
-            },
-            error:function () {
-
-            }
-        });
-    }
+       
 
 </script>

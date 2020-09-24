@@ -38,8 +38,8 @@ return [
             'clients' => [
                 'google' => [
                     'class' => 'yii\authclient\clients\Google',
-                    'clientId' => 'google_client_id',
-                    'clientSecret' => 'google_client_secret',
+                    'clientId' => '496792697808-n2bloj1j6sauog8q5eq2vrq9alr9jlre.apps.googleusercontent.com',
+                    'clientSecret' => 'LYrmnQs42IzYSQPMIOQ2-0cY',
                 ],
             ],
         ],
