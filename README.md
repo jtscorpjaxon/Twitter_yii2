@@ -12,9 +12,8 @@
 yii migrate
 ````
 **Second run ````localhost```` or ````localhost:8888````** 
-Challenge: Create a Twitter-style status system.
-
- 
+<br>
+**Challenge: Create a Twitter-style status system.**
 
 1) Login and registration pages with username and password.
 
@@ -40,9 +39,8 @@ Challenge: Create a Twitter-style status system.
 
 12) Requirements: with MVC framework.
 
-Задача: создать систему статусов в стиле Twitter.
 
- 
+**Задача: создать систему статусов в стиле Twitter.**
 
 1) Страницы входа и регистрации с именем пользователя и паролем.
 
