@@ -67,6 +67,6 @@ yii migrate
 12) Требования: со структурой MVC.
 <p align="center">
 
-<img src="https://github.com/jtscorpjaxon/Twitter_yii2/blob/master/frontend/web/images/Screenshot.jpg" height="100px">
+<img src="https://github.com/jtscorpjaxon/Twitter_yii2/blob/master/frontend/web/images/Screenshot.jpg" >
    
 </p>
